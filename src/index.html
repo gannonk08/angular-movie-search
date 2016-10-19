@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Movie Search</title>
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body ng-cloak>
+    <div class="container">
+      <div class="row"  ng-controller="mainController as mainCtrl">
+        <div class="row">
+          <form name="movieSearchForm" class="col m10 offset-m1">
+            <div class="row">
+              <div class="input-field col s8">
+                <input ng-model="movieName"id="movieName" type="text" class="validate">
+                <label class="active" for="movieName">Search Movies By Name:</label>
+              </div>
+              <div class="col s4">
+                <a class="waves-effect waves-light btn searchBtn" ng-click="mainCtrl.getMovies(movieName)"><i class="material-icons right">search</i>Search Movie</a>
+              </div>
+            </div>
+          </form>
+          <div class="row" ng-show="mainCtrl.movieResults">
+            <div class="col m10 offset-m1">
+              <div class="row" ng-repeat="movie in mainCtrl.movieResults">
+                <div class="col s6 m6 offset-m2" >
+                  <div class="card">
+                    <div class="card-image">
+                      <img ng-src={{movie.Poster}}>
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title">{{movie.Title}} - {{movie.Year}}</span>
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <!-- main component -->
+    <script type="text/javascript" src="js/components/main/main.controller.js"></script>
+    <script type="text/javascript" src="js/components/services/searchMovies.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+
+  </body>
+</html>
